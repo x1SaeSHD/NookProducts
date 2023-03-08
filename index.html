@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Product Page</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
 	<link rel="stylesheet" href="home.css">
 </head>
 <body>
+	
 	<header>
 		<h1>Silver stone Stainless Steel ring</h1>
 		<nav>
@@ -19,7 +18,42 @@
 	</header>
 	<main>
 		<div class="product-image">
-			<img src="ring.jpg" alt="Product Image">
+			<style>
+				img {
+					max-width: 30%;
+					height: auto;
+				}
+			</style>
+		</head>
+		<body>
+			<div id="slider">
+				<img src="ring.jpg">
+				<img src="ring2.jpg">
+				<img src="ring4.jpg">
+			</div>
+			<script>
+				let sliderIndex = 0;
+				const sliderImages = document.querySelectorAll('#slider img');
+				const sliderLength = sliderImages.length;
+		
+				function showSlide(index) {
+					for (let i = 0; i < sliderLength; i++) {
+						sliderImages[i].style.display = 'none';
+					}
+					sliderImages[index].style.display = 'block';
+				}
+		
+				function nextSlide() {
+					if (sliderIndex < sliderLength - 1) {
+						sliderIndex++;
+					} else {
+						sliderIndex = 0;
+					}
+					showSlide(sliderIndex);
+				}
+		
+				setInterval(nextSlide, 3000);
+			</script>
 		</div>
 		<div class="product-details">
 			<h2>Description</h2>
